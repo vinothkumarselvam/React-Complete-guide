@@ -1,0 +1,18 @@
+.cards{
+    width: 70%;
+    margin:10px auto;
+    background:#EEE;
+    border:1px solid #CCC;
+    box-shadow: 0px 2px 2px #000;
+    padding:14px;
+}
+
+.inputCards{
+    width: 70%;
+    margin:10px auto;
+    background:#EEE;
+    border:1px solid #CCC;
+    box-shadow: 0px 2px 2px #000;
+    padding:14px;
+    text-align: justify;
+}
