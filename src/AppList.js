@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import Radium, {StyleRoot} from 'radium';
+//import Radium, {StyleRoot} from 'radium';
+import styled from 'styled-components';
 import Person from './Person/Person';
 
+const StyledButton = styled.button`
+      background-color: ${props => props.alt ? 'red' : 'green'};
+      color:white;
+      border: 1px solid blue;
+      padding: 8px;
+      cursor: pointer;
+      
+      &:hover {
+        background-color: ${props => props.alt ? 'lightred' : 'lightgreen'};
+        color:black;
+      }
+`;
 
 
 class AppList extends Component {
@@ -55,18 +68,18 @@ class AppList extends Component {
   };
 
   render() {
-    const buttonStyle = {
-      backgroundColor: 'green',
-      color:'white',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer',
-      textAlign: 'right',
-      ':hover': {
-        backgroundColor: 'lightgreen',
-        color:'black'
-      }
-    };
+    // const buttonStyle = {
+    //   backgroundColor: 'green',
+    //   color:'white',
+    //   border: '1px solid blue',
+    //   padding: '8px',
+    //   cursor: 'pointer',
+    //   textAlign: 'right',
+    //   ':hover': {
+    //     backgroundColor: 'lightgreen',
+    //     color:'black'
+    //   }
+    // };
 
     let person = null;
     if(this.state.showPerson){
@@ -87,11 +100,11 @@ class AppList extends Component {
 
       )
 
-      buttonStyle.backgroundColor = "red";
-      buttonStyle[':hover'] = {
-        backgroundColor: 'lightred',
-        color:'black'
-      }; 
+      // buttonStyle.backgroundColor = "red";
+      // buttonStyle[':hover'] = {
+      //   backgroundColor: 'lightred',
+      //   color:'black'
+      // }; 
 
     }
 
@@ -109,21 +122,20 @@ class AppList extends Component {
     }
 
     return (
-        <StyleRoot>
+        // <StyleRoot>
           <div className="App">
               <h1>Welcome Vinoth </h1> 
               <p className={paraClass.join(" ")}>Good Morning !!!!</p>
-              <button 
-                  style={buttonStyle}
-                  onClick={this.toggleHandler} >Toggle Person</button>
+              <StyledButton alt={this.state.showPerson} onClick={this.toggleHandler} >Toggle Person</StyledButton>
   
               {person}     
           </div>
-        </StyleRoot>
+       
     );
   }
 
 }
 
 
-export default Radium(AppList);
+//export default Radium(AppList);
+export default AppList;
