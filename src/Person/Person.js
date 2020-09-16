@@ -1,7 +1,5 @@
 import React from 'react';
-// import Radium from 'radium';
-import styled from 'styled-components';
-import './Person.css';
+import  './Person.css';
 
 
 /*
@@ -34,28 +32,15 @@ const person = (props) => {
             Only one Parent tag used in the multi line component.
 */
 
-const StyleDiv = styled.div`
 
-    width: 60%;
-    margin: 18px auto;
-    border: 1px solid #eee;
-    -webkit-box-shadow: 0 2px 3px #ccc;
-    box-shadow: 0 7px 20px #ccc;
-    padding: 16px;
-    text-align: center
-
-
-@media (min-width: 500px):{
-    width: '450px'
-}`;
 
 const person = (props) => {
 
     return (
-        <StyleDiv>
+        <div className="Person">
             <p onClick={props.click}> Hi, I'm {props.name} and my age is {props.age}.</p>
             <input type="text" onChange={props.changed} value={props.name}/>
-        </StyleDiv>
+        </div>
     )
 };
 
