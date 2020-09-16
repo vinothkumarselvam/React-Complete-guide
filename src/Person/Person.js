@@ -1,6 +1,6 @@
 import React from 'react';
-import Radium from 'radium';
-import './Person.css';
+import  Classes from './Person.css';
+
 
 /*
 EXAMPLE 1: hard core age value
@@ -32,14 +32,12 @@ const person = (props) => {
             Only one Parent tag used in the multi line component.
 */
 
+
+
 const person = (props) => {
-    const personstyle = {
-        '@media (min-width: 500px)':{
-            width: '450px'
-        }
-    }
+
     return (
-        <div className="Person" style={personstyle}>
+        <div className={Classes.Person}>
             <p onClick={props.click}> Hi, I'm {props.name} and my age is {props.age}.</p>
             <input type="text" onChange={props.changed} value={props.name}/>
         </div>
@@ -48,4 +46,4 @@ const person = (props) => {
 
 
 
-export default Radium(person);
+export default person;

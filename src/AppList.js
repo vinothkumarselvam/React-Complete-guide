@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
-import './App.css';
-import Radium, {StyleRoot} from 'radium';
+import Classes from './App.css';
 import Person from './Person/Person';
-
 
 
 class AppList extends Component {
@@ -55,20 +52,9 @@ class AppList extends Component {
   };
 
   render() {
-    const buttonStyle = {
-      backgroundColor: 'green',
-      color:'white',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer',
-      textAlign: 'right',
-      ':hover': {
-        backgroundColor: 'lightgreen',
-        color:'black'
-      }
-    };
-
     let person = null;
+    let BtnClass = [Classes.Button];
+    
     if(this.state.showPerson){
       person = (
         <div>
@@ -86,44 +72,43 @@ class AppList extends Component {
         </div>
 
       )
+      BtnClass.push(Classes.Red);
 
-      buttonStyle.backgroundColor = "red";
-      buttonStyle[':hover'] = {
-        backgroundColor: 'lightred',
-        color:'black'
-      }; 
+      // buttonStyle.backgroundColor = "red";
+      // buttonStyle[':hover'] = {
+      //   backgroundColor: 'lightred',
+      //   color:'black'
+      // }; 
 
     }
 
     const paraClass = [];
     if(this.state.persons.length <= 2){
-      paraClass.push('red');
+      paraClass.push(Classes.red);
     } 
     if(this.state.persons.length <= 1){
-      paraClass.push('bold');
+      paraClass.push(Classes.bold);
     }
 
     if(this.state.persons.length < 1){
-      paraClass.pop('bold');
-      paraClass.pop('red');
+      paraClass.pop(Classes.bold);
+      paraClass.pop(Classes.red);
     }
 
     return (
-        <StyleRoot>
-          <div className="App">
+          <div className={Classes.App}>
               <h1>Welcome Vinoth </h1> 
               <p className={paraClass.join(" ")}>Good Morning !!!!</p>
-              <button 
-                  style={buttonStyle}
-                  onClick={this.toggleHandler} >Toggle Person</button>
+              <button className={BtnClass.join(" ")} onClick={this.toggleHandler} >Toggle Person</button>
   
               {person}     
           </div>
-        </StyleRoot>
+       
     );
   }
 
 }
 
 
-export default Radium(AppList);
+//export default Radium(AppList);
+export default AppList;
