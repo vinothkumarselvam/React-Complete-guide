@@ -24,6 +24,15 @@
   color:black;
 }
 
+
+.Button.Red{
+  background-color: red;
+}
+
+.Button.Red:hover{
+  background-color: salmon;
+}
+
 /* .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
